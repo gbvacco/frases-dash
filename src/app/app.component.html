@@ -1,24 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<form [formGroup]="this.form">
+  <div class="container" style="margin-top: 40px; margin-bottom: 40px;">
+    <div class="row">
+      <div class="col-12">
+        <h2>Frase</h2>
+        <!-- <div class="mb-3">
+          <label for="titulo" class="form-label">Titulo</label>
+          <input type="text" class="form-control" id="titulo" formControlName="titulo">
+        </div> -->
+        <div class="mb-3">
+          <label for="frase" class="form-label">Texto</label>
+          <textarea class="form-control" id="frase" formControlName="frase" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="autor" class="form-label">Autor</label>
+          <input type="text" class="form-control" id="autor" formControlName="autor">
+        </div>
+        <div class="mb-3">
+          <label for="autor_url" class="form-label">Link de informação do autor</label>
+          <input type="text" class="form-control" id="autor_url" formControlName="autor_url">
+        </div>
+        <div class="mb-3">
+          <label for="usuario_rede_social" class="form-label">Usuário da rede social</label>
+          <input type="text" class="form-control" id="usuario_rede_social" formControlName="usuario_rede_social">
+        </div>
+        <div class="mb-3">
+          <label for="link_usuario_rede_social" class="form-label">Link da rede social</label>
+          <input type="text" class="form-control" id="link_usuario_rede_social" formControlName="link_usuario_rede_social">
+        </div>
+      </div>
+      <div class="col-12">
+        <hr>
+        <h2>Livro</h2>
+        <div class="mb-3">
+          <label for="nome_livro" class="form-label">Titulo</label>
+          <input type="text" class="form-control" id="nome_livro" formControlName="nome_livro">
+        </div>
+        <div class="mb-3">
+          <label for="autor_livro" class="form-label">Autor</label>
+          <input type="text" class="form-control" id="autor_livro" formControlName="autor_livro">
+        </div>
+        <div class="mb-3">
+          <label for="resumo_livro" class="form-label">Sinopse</label>
+          <textarea class="form-control" id="resumo_livro" formControlName="resumo_livro" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="livro_url" class="form-label">Link referência do livro</label>
+          <input type="text" class="form-control" id="livro_url" formControlName="livro_url">
+        </div>
+      </div>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Painel do Motivacionapp!</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-</head>
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="../assets/img/icon.png" alt="" width="30" height="24"
-        class="d-inline-block align-text-top">
-      Painel do Motivacionapp
-    </a>
+      <div class="col-12">
+        <hr>
+        <h2>Configuração</h2>
+        <div class="mb-3">
+          <label for="data_exibicao" class="form-label">Data da exibição</label>
+          <input type="date" class="form-control" id="data_exibicao" formControlName="data_exibicao">
+        </div>
+        <div class="mb-3">
+          <label for="likes" class="form-label">Quantidade de likes inicial</label>
+          <input type="number" class="form-control" id="likes" formControlName="likes" value="0">
+        </div>
+      </div>
+      <div class="col-6">
+        <button type="button" class="btn btn-primary btn-lg" (click)="add()">Salvar</button>
+      </div>
+    </div>
   </div>
-</nav>
-
-<body id="index" class="home">
-</body>
-
-</html>
+</form>
