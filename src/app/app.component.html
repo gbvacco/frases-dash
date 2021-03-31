@@ -15,6 +15,23 @@
   </div>
 </ng-template>
 
+<ng-template #error let-modal>
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h1 style="font-size: 80px;" class="text-center">
+      <i class="bi bi-x-circle-fill"></i>
+    </h1>
+    <h2 class="text-center">Erro!</h2>
+    <p class="text-center">
+      Não foi possível adicionar o conteúdo ao banco de dados, verifique o painel.
+    </p>
+  </div>
+</ng-template>
+
 <form [formGroup]="this.form">
   <div class="container" style="margin-top: 40px; margin-bottom: 40px;">
     <div class="row">
@@ -76,7 +93,7 @@
         </div>
       </div>
       <div class="col-6">
-        <button type="button" class="btn btn-primary btn-lg" (click)="add(content)">Salvar</button>
+        <button type="button" class="btn btn-primary btn-lg" (click)="add(content, error)">Salvar</button>
       </div>
       <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
     </div>

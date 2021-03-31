@@ -42,17 +42,16 @@ export class AppComponent {
   }
 
 
-  public add(content: any) {
+  public add(content: any, error: any) {
     this.firestore
       .collection('frases')
       .doc(this.convertDateToDoc(this.form.get('data_exibicao')?.value))
       .set(this.form.value)
       .then(res => {
         this.open(content);
-        console.log(res);
-        // this.form.reset();
       })
       .catch(e => {
+        this.open(error);
         console.log(e);
       });
   }
