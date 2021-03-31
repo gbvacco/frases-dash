@@ -2,14 +2,17 @@ import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup } from "@angular/forms";
 
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore, private modalService: NgbModal) { }
   public title = 'frases-dash';
+  closeResult = '';
 
   public form = new FormGroup({
     titulo: new FormControl(''),
@@ -31,6 +34,15 @@ export class AppComponent {
     return `${splitDate[2]}${splitDate[1]}${splitDate[0]}`
   }
 
+  open(content: any) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result: any) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason: any) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+
   public add() {
     this.firestore
       .collection('frases')
@@ -43,5 +55,15 @@ export class AppComponent {
       .catch(e => {
         console.log(e);
       });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }
