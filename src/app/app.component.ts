@@ -15,7 +15,6 @@ export class AppComponent {
   closeResult = '';
 
   public form = new FormGroup({
-    titulo: new FormControl(''),
     frase: new FormControl(''),
     autor: new FormControl(''),
     autor_url: new FormControl(''),
@@ -43,12 +42,13 @@ export class AppComponent {
   }
 
 
-  public add() {
+  public add(content: any) {
     this.firestore
       .collection('frases')
       .doc(this.convertDateToDoc(this.form.get('data_exibicao')?.value))
       .set(this.form.value)
       .then(res => {
+        this.open(content);
         console.log(res);
         // this.form.reset();
       })

@@ -1,25 +1,17 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="dateOfBirth">Date of birth</label>
-        <div class="input-group">
-          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    <h1 style="font-size: 80px;" class="text-center">
+      <i class="text-center bi bi-check-circle-fill"></i>
+    </h1>
+    <h2 class="text-center">Sucesso!</h2>
+    <p class="text-center">
+      Conteúdo adicionado com sucesso ao banco de dados
+    </p>
   </div>
 </ng-template>
 
@@ -28,10 +20,6 @@
     <div class="row">
       <div class="col-12">
         <h2>Frase</h2>
-        <!-- <div class="mb-3">
-          <label for="titulo" class="form-label">Titulo</label>
-          <input type="text" class="form-control" id="titulo" formControlName="titulo">
-        </div> -->
         <div class="mb-3">
           <label for="frase" class="form-label">Texto</label>
           <textarea class="form-control" id="frase" formControlName="frase" rows="3"></textarea>
@@ -50,7 +38,8 @@
         </div>
         <div class="mb-3">
           <label for="link_usuario_rede_social" class="form-label">Link da rede social</label>
-          <input type="text" class="form-control" id="link_usuario_rede_social" formControlName="link_usuario_rede_social">
+          <input type="text" class="form-control" id="link_usuario_rede_social"
+            formControlName="link_usuario_rede_social">
         </div>
       </div>
       <div class="col-12">
@@ -87,8 +76,9 @@
         </div>
       </div>
       <div class="col-6">
-        <button type="button" class="btn btn-primary btn-lg" (click)="add()">Salvar</button>
+        <button type="button" class="btn btn-primary btn-lg" (click)="add(content)">Salvar</button>
       </div>
+      <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
     </div>
   </div>
 </form>
